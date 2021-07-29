@@ -16,6 +16,7 @@ public class Person {
     private int phoneNo;
     private String code;
     private int COUNT = 0;
+    Loan ln;
 
     //constructor
     public Person(){
@@ -124,10 +125,5 @@ public class Person {
             throw new IllegalArgumentException("Name should have 3 letters and above");
         }
     }
-    /*
-    public void validNum(int phoneNo, int idNo){
 
-    }
-
-     */
 }

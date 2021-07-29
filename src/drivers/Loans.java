@@ -2,12 +2,14 @@ package drivers;
 
 interface Loans {
 
-    String lName = "";
-    int duration = 0;
+    String loanName = "";
+    double duration = 0;
+    double interest = 0 ;
 
     //methods
     String getName();
-    int getDuration();
+    double getDuration();
+    double getInterest();
 
 
 }
