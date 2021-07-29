@@ -4,11 +4,13 @@ import db.Database;
 
 public class Loan implements Loans {
     String loanName = "loan A";
-    double duration = 6;
-    double interest = 12.0; //interest in percentage
+    double duration = 8;
+    double interest = 6.0; //interest in percentage
     double loanAmount;
     double paidAmount;
     Database db;
+
+    Loanee loan;
 
     @Override
     public String getName() {
@@ -50,10 +52,8 @@ public class Loan implements Loans {
 
     public double getGivenLoan(){
 
-        return loanAmount - ((interest * duration *loanAmount)/100);
+        return loanAmount - ((interest/100) * loanAmount);
     }
-
-
 
 
 }

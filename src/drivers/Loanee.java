@@ -25,6 +25,11 @@ public class Loanee extends Person{
         ln.setLoanAmount(amount);
     }
 
+    //overloaded method
+    public void borrowLoan(int amount){
+        ln.setLoanAmount(amount);
+    }
+
     //set client salary
     public double getSalary(){
         return salary;
@@ -37,5 +42,9 @@ public class Loanee extends Person{
 
     public double getPaidAmount(){
         return ln.getPaidAmount();
+    }
+
+    public double getBorrowedLoan(){
+        return ln.getInterest();
     }
 }

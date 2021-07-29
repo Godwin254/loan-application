@@ -38,7 +38,7 @@ public class App {
                 if (user_input == 1){
                     //code for registration
 
-                    App.display1("New User");
+                    App.display("New User");
 
                     //grab user input
                     System.out.println("*********************\n");
@@ -64,7 +64,7 @@ public class App {
                     System.out.println("Saved successfully!\n");
 
                     //prompt user to login after registration
-                    App.display1("Login");
+                    App.display("Login");
 
                     //grab user login inputs
                     System.out.println("Enter ID No. :\n");
@@ -78,12 +78,13 @@ public class App {
                     //validate login credentials
                     if (idNo == person.getIdNo() && password.equals(person.getCode())){
                         System.out.println("Successful login..\n");
-                        App.displayOpt();
+                        App.displayMenu();
 
                         user_input = sc.nextInt();
 
                         if (user_input == 1){
                             //borrow loan
+                            System.out.println("******************************************\n");
                             System.out.println("How much would like to borrow? \n");
                             amountToBorrow = sc.nextDouble();
                             System.out.println("How much is your monthly salary? \n");
@@ -93,6 +94,14 @@ public class App {
                             ln.setLoanAmount(amountToBorrow);
                             person.setSalary(salary);
 
+                            System.out.println("*******************************\n");
+                            System.out.println("Borrowed Loan details \n");
+                            System.out.printf("%20s%20s%10s%20s%20s%n","Borrowed amount", "Given Amount", "Interest(%)", "Time(month)", "Amount to pay");
+                            System.out.printf("%20.2f%20.2f%20.2f%5.2f%.2f%n", person.getBorrowedLoan(), ln.getGivenLoan(), ln.getInterest(), ln.getDuration(), person.getBorrowedLoan());
+
+                            System.out.println("Would you like to proceed? \n" +
+                                                "1. Yes\n" +
+                                                "2. exit\n");
 
                         }else if (user_input == 2 ){
                             //check balance
@@ -110,22 +119,22 @@ public class App {
 
                         }else{
                             //exit
-                            App.display1("New User");
+                            App.display("New User");
 
                         }
 
                     }else{
                         System.out.println("Incorrect details!\n");
                         //prompt user to login after registration
-                        App.display1("Login");
+                        App.display("Login");
                     }
 
 
                 }else if(user_input == 2){
                     //code for login
 
-                    App.display1("Login");
-                    System.out.println("*********************");
+                    App.display("Login");
+                    System.out.println("**************************");
 
                 }else if (user_input == 3){
                     //code to exit
@@ -158,13 +167,14 @@ public class App {
                  "3. Exit app\n");
     }
 
-    public static void display1(String val){
+    //overloaded method
+    public static void display(String val){
         System.out.println("******** WELCOME TO TAP-LOAN-APP ********\n" +
                 "*** Registration - "+val+" ***\n" +
                 "1.Save and exit\n");
     }
 
-    static void displayOpt(){
+    static void displayMenu(){
         System.out.println("What would you like to do?\n" +
                             "1. Borrow Loan\n" +
                             "2. Check loan balance\n" +
