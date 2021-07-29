@@ -22,6 +22,7 @@ public class Person {
     public Person(){
 
     }
+
     public Person(String firstName, int phoneNo) throws IllegalArgumentException{
         //validate name entries
         validName(firstName);
